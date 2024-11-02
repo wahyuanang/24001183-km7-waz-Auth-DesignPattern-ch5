@@ -1,6 +1,11 @@
-
-const api = require("./api");
+const AuthController = require("./authController");
+const UserController = require("./userController");
+const SystemController = require("./SystemController");
+const CarController = require("./carController");
 
 module.exports = {
-  api,
+  AuthController,
+  UserController,
+  SystemController,
+  CarController,
 };
