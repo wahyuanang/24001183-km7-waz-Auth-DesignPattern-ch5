@@ -1,19 +1,19 @@
 const router = require("express").Router();
 
-const { SystemController } = require("../controllers/SystemController");
+const SystemController = require("../controllers/SystemController");
 
 const Auth = require("./authRoute");
 const User = require("./userRoute");
 const Car = require("./carRoute");
-const Docs = require("./documentationRouter");
+const Docs = require("./documentationRoute");
 
-router.use("/api/v1/auth", Auth);
-router.use("/api/v1/users", User);
-router.use("/api/v1/cars", Car);
+router.use("/auth", Auth);
+router.use("/users", User);
+router.use("/cars", Car);
 
 router.use("/api-docs", Docs);
 
-router.use("/api/v1/health-check", SystemController.healtcheck);
+router.use("/health-check", SystemController.healthcheck);
 router.use(SystemController.onLost);
 router.use(SystemController.onError);
 

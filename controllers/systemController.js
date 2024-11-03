@@ -1,15 +1,15 @@
-const healtcheck = async (req, res) => {
+const healthcheck = async (req, res) => { 
     try {
         res.status(200).json({
             status: "Success",
-            message: "Application passed healtcheck",
+            message: "Application passed healthcheck", 
             isSuccess: true,
             data: null,
         });
     } catch (error) {
         res.status(500).json({
             status: "Failed",
-            message: "Application failed pass healtcheck",
+            message: "Application failed to pass healthcheck", 
             isSuccess: false,
             data: null,
         });
@@ -27,7 +27,7 @@ function onLost(req, res, next) {
 
 function onError(err, req, res, next) {
     res.status(500).json({
-        status: "Failed",
+        status: "Failed Anjeng",
         message: err.message,
         isSuccess: false,
         data: null,
@@ -37,5 +37,5 @@ function onError(err, req, res, next) {
 module.exports = {
     onLost,
     onError,
-    healtcheck
+    healthcheck 
 };

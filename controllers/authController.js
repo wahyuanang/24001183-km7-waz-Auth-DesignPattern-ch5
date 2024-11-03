@@ -4,7 +4,7 @@ const validator = require("validator");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const { Users } = require("../models");
+const { User } = require("../models");
 
 const createToken = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET, {
@@ -17,7 +17,7 @@ const register = async (req, res) => {
     const { email, password, firstName, lastName, phone } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const existingUser = await Users.findOne({ where: { email } });
+    const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({
         status: "Failed",
@@ -52,7 +52,7 @@ const register = async (req, res) => {
       });
     }
 
-    const newUser = await Users.create({
+    const newUser = await User.create({
       email,
       password: hashedPassword,
       firstName,
@@ -87,7 +87,7 @@ const register = async (req, res) => {
     } else {
       return res.status(500).json({
         status: "Failed",
-        message: "An unexpected error occurred",
+        message: error.message,
         isSuccess: false,
         data: null,
       });
@@ -109,7 +109,7 @@ const login = async (req, res) => {
       });
     }
 
-    if (!validator.isLength(password, { min: 8 })) {
+    if (!validator.isLength(password, { min: 3 })) {
       return res.status(400).json({
         status: "Failed",
         message: "Password at least 8 char",
@@ -125,14 +125,14 @@ const login = async (req, res) => {
       });
     }
 
-    const userDetail = await Users.findOne({
-      where: { email: emailLowerCase },
+    const userDetail = await User.findOne({
+      where: { email },
     });
 
     if (!userDetail) {
       return res.status(404).json({
         status: "Failed",
-        message: "Cannot find spesific users",
+        message: "Cannot find spesific User",
         isSuccess: false,
         data: null,
       });
@@ -140,6 +140,7 @@ const login = async (req, res) => {
     const hashedPassword = userDetail.password;
     const isCorrectPass = await bcrypt.compare(password, hashedPassword);
 
+    // console.log(userDetail);
     if (isCorrectPass) {
       const token = createToken({
         id: userDetail.id,

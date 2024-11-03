@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       firstName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -40,23 +40,23 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           len: {
-            args: [8, 255],
+            args: [3, 255],
             msg: "Password must be at least 6 characters long",
           },
         },
-      },      
+      },
       phone: DataTypes.STRING,
       photo: DataTypes.TEXT,
       role: {
-        type: DataTypes.ENUM('superadmin', 'admin', 'member'),
-        defaultValue: 'member',
+        type: DataTypes.ENUM("superadmin", "admin", "member"),
+        defaultValue: "member",
         validate: {
           isIn: {
-            args: [['superadmin', 'admin', 'member']],
+            args: [["superadmin", "admin", "member"]],
             msg: "Role tidak ditemukan brok",
-          }
-        }
-      } 
+          },
+        },
+      },
     },
     {
       sequelize,

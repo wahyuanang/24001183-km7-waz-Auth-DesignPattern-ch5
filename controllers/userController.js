@@ -3,12 +3,13 @@ const { where } = require("sequelize");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
-const { Users } = require("../models");
+const { User } = require("../models");
 const imagekit = require("../lib/imagekit");
 
 async function getAllUsers(req, res) {
+  console.log("ok");
   try {
-    const users = await Users.findAll();
+    const users = await User.findAll();
 
     if (users.length === 0) {
       return res.status(404).json({
@@ -46,7 +47,7 @@ async function getAllUsers(req, res) {
     } else {
       return res.status(500).json({
         status: "Failed",
-        message: "An unexpected error occurred",
+        message: error.message,
         isSuccess: false,
         data: null,
       });
@@ -57,7 +58,7 @@ async function getAllUsers(req, res) {
 async function getUserbyId(req, res) {
   try {
     const id = req.params.id;
-    const user = await Users.findByPk(id);
+    const user = await User.findByPk(id);
     if (!user) {
       return res.status(404).json({
         status: "Failed",
@@ -107,7 +108,7 @@ async function createUser(req, res) {
     const { email, password, firstName, lastName, phone } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const existingUser = await Users.findOne({ where: { email } });
+    const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({
         status: "Failed",
@@ -142,62 +143,22 @@ async function createUser(req, res) {
       });
     }
 
-    if (req.file) {
-      console.log("ok");
-      const file = req.file;
-      const split = file.originalname.split(".");
-      const ext = split[split.length - 1];
+    const newUser = await User.create({
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+      phone,
+    });
 
-      const uploadedImage = await imagekit.upload({
-        file: file.buffer,
-        fileName: `${split[0]}-${Date.now()}.${ext}`,
-      });
-      if (!uploadedImage) {
-        return res.status(500).json({
-          status: "Failed",
-          message: "Cant add uploadimage",
-          isSuccess: false,
-          data: null,
-        });
-      } else if (uploadedImage) {
-        const newUser = await Users.create({
-          email,
-          password: hashedPassword,
-          firstName,
-          lastName,
-          phone,
-          fotoProfil: uploadedImage.url,
-          role: "admin",
-        });
-
-        res.status(200).json({
-          status: "Success",
-          message: "Success create admin data",
-          isSuccess: true,
-          data: {
-            newUser,
-          },
-        });
-      }
-    } else {
-      const newUser = await Users.create({
-        email,
-        password: hashedPassword,
-        firstName,
-        lastName,
-        phone,
-        role: "admin",
-      });
-
-      res.status(200).json({
-        status: "Success",
-        message: "Success create admin data",
-        isSuccess: true,
-        data: {
-          newUser,
-        },
-      });
-    }
+    res.status(201).json({
+      status: "Success",
+      message: "Register user successfully",
+      isSuccess: true,
+      data: {
+        newUser,
+      },
+    });
   } catch (error) {
     if (error.name === "SequelizeValidationError") {
       const errorMessage = error.errors.map((err) => err.message);
@@ -223,7 +184,7 @@ async function createUser(req, res) {
       });
     }
   }
-}
+};
 
 module.exports = {
   getAllUsers,
