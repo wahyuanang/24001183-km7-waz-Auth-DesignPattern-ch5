@@ -1,22 +1,41 @@
-Car management Api
+# 🚗 Car Management API
 
-dalam project chapter 5 ini, saya membuat aplikasi car management api yang dibangun menggunakan express.js , PostgreSQL, sequalize sebagai ORM. untuk menjalankan aplikasi ini saya menggunakan Postman untuk cek API. Aplikasi ini mempunyai operasi CRUD pada tabel car, dan user untuk mengelola peminjaman / pengguna mobil rental.  dalam pembuatan aplikasi ini menggunkan sistem authentikasidan otorisasi menggunakan JWT (json web token), dan hash password menggunakan bcrypt dan Api-documentasi menggunakan swagger.
+Selamat datang di **Car Management API**! Proyek ini merupakan aplikasi untuk mengelola data mobil dan pengguna dalam sistem rental mobil. Dibangun menggunakan **Express.js**, **PostgreSQL**, dan **Sequelize** sebagai ORM, API ini menyediakan operasi CRUD untuk pengelolaan data mobil dan pengguna. 
 
-Teknologi yang digunakan
-Node.js, express.js, sequelize ORM, JWT(json web token), swagger, bycript, postgreSQL
+## 🎯 Deskripsi Proyek
 
+Dalam proyek ini, Anda akan menemukan fitur-fitur sebagai berikut:
+- **CRUD** untuk data mobil dan pengguna.
+- Sistem **autentikasi** dan **otorisasi** menggunakan **JWT (JSON Web Token)**.
+- **Hashing password** menggunakan **bcrypt**.
+- Dokumentasi API yang jelas menggunakan **Swagger**.
 
-instalasi
-jangan lupa untuk clone repo
-https://github.com/wahyuanang/24001183-km7-waz-CarManagementApi-ch5.git
+## ⚙️ Teknologi yang Digunakan
 
-install dependencies
-npm insall
+- **Node.js**
+- **Express.js**
+- **Sequelize ORM**
+- **JWT (JSON Web Token)**
+- **Swagger**
+- **Bcrypt**
+- **PostgreSQL**
 
-atur .env di .env.example
-DB_USERNAME= 
-DB_PASSWORD= 
-DB_NAME= 
+## 📥 Instalasi
+
+Ikuti langkah-langkah berikut untuk menginstal dan menjalankan aplikasi ini di lingkungan lokal Anda:
+
+### 1. Clone Repository
+Clone repo dari GitHub:
+```bash
+git clone https://github.com/wahyuanang/24001183-km7-waz-CarManagementApi-ch5.git
+
+### 2. Intall Dependencies
+npm install
+
+### 3. Atur file .env
+DB_USERNAME=
+DB_PASSWORD=
+DB_NAME=
 DB_HOST=
 DB_PORT=
 
@@ -27,15 +46,18 @@ URL_ENDPOINT=
 JWT_SECRET=
 JWT_EXPIRED=
 
-jalankan database
+### 4. Jalankan database
 npx sequelize db:create
 npx sequelize db:migrate
 npx sequelize db:seed:all
 
-Jalankan aplikasi
+### 4. Jalankan aplikasi
 npm run dev
 
-testing postman
+
+
+
+
 
 ## Authentication
 Akses ke beberapa endpoint dibatasi untuk peran Admin dan Super Admin.
