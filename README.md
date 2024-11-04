@@ -116,3 +116,8 @@ Akses ke beberapa endpoint dibatasi untuk peran Admin dan Super Admin.
 - **Endpoint:** `/api/v1/cars/id`
 - **Description:** Delete mobil berdasarkan id 
 - **Note:** Isi di dalam row query
+
+### 📋 Swagger-ui
+- **Akses api-docs melalui link di bawah**
+**http://localhost:8000/api-docs/**
+
