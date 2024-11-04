@@ -34,7 +34,7 @@ module.exports = {
       updateBy: {
         type: Sequelize.INTEGER,
       },
-      delete: {
+      deleteBy: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

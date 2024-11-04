@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
   class Car extends Model {
     static associate(models) {
       Car.belongsTo(models.User, {
-        // Perhatikan di sini
         foreignKey: "createBy",
         as: "userCreate",
       });
@@ -40,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       createBy: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Users",
+          model: "User",
           key: "id",
         },
         onDelete: "CASCADE",
@@ -49,21 +48,22 @@ module.exports = (sequelize, DataTypes) => {
       updateBy: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Users",
+          model: "User",
           key: "id",
         },
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      delete: {
+      deleteBy: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Users",
+          model: "User",
           key: "id",
         },
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
+      deletedAt: DataTypes.DATE,
     },
     {
       sequelize,
@@ -71,4 +71,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   return Car;
+
 };
