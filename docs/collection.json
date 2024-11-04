@@ -1,0 +1,1748 @@
+{
+	"info": {
+		"_postman_id": "3bdbe4b2-7006-499b-875b-74b7f37a3334",
+		"name": "CHALLENGE CHAPTER 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38709967"
+	},
+	"item": [
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "get all cars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/cars//1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:35:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-+p65kW9S9ZbIceMWizps7k81ox8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:36:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Failed\",\n    \"message\": \"API not found\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						},
+						{
+							"name": "200 get all success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/cars",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1599"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63f-KI8IJ/YoQjsYhJelppny85bp0f8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:37:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success get cars data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"cars\": [\n            {\n                \"id\": 1,\n                \"name\": \"Toyota Camry\",\n                \"tahun\": \"2020\",\n                \"noPlat\": \"B1234XYZ\",\n                \"harga\": \"300000000\",\n                \"fotoMobil\": \"url_to_image_camry\",\n                \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Honda Civic\",\n                \"tahun\": \"2019\",\n                \"noPlat\": \"B5678ABC\",\n                \"harga\": \"200000000\",\n                \"fotoMobil\": \"url_to_image_civic\",\n                \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Nissan X-Trail\",\n                \"tahun\": \"2018\",\n                \"noPlat\": \"B9101DEF\",\n                \"harga\": \"180000000\",\n                \"fotoMobil\": \"url_to_image_xtrail\",\n                \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Mitsubishi Pajero\",\n                \"tahun\": \"2021\",\n                \"noPlat\": \"B1122GHI\",\n                \"harga\": \"450000000\",\n                \"fotoMobil\": \"url_to_image_pajero\",\n                \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Toyota Fortuner\",\n                \"tahun\": \"2022\",\n                \"noPlat\": \"B1314JKL\",\n                \"harga\": \"350000000\",\n                \"fotoMobil\": \"url_to_image_fortuner\",\n                \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 6,\n                \"name\": \"limosin terbaru\",\n                \"tahun\": \"2024\",\n                \"noPlat\": \"AB 1234 SA\",\n                \"harga\": \"20000000\",\n                \"fotoMobil\": null,\n                \"createdAt\": \"2024-11-04T08:27:45.002Z\",\n                \"updatedAt\": \"2024-11-04T14:30:43.020Z\",\n                \"deletedAt\": \"2024-11-04T14:31:00.167Z\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"limosin prabowo\",\n                \"tahun\": \"2024\",\n                \"noPlat\": \"AB 1234 SB\",\n                \"harga\": \"25000000\",\n                \"fotoMobil\": null,\n                \"createdAt\": \"2024-11-04T14:30:21.502Z\",\n                \"updatedAt\": \"2024-11-04T14:30:21.502Z\",\n                \"deletedAt\": null\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get car by_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/cars/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:38:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						},
+						{
+							"name": "200 success get by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"165-+G9jQM4qnJRcGUevdpk7ObCoiK4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:39:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success get cars data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"car\": {\n            \"id\": 3,\n            \"name\": \"Nissan X-Trail\",\n            \"tahun\": \"2018\",\n            \"noPlat\": \"B9101DEF\",\n            \"harga\": \"180000000\",\n            \"fotoMobil\": \"url_to_image_xtrail\",\n            \"createdAt\": \"2024-11-04T08:17:08.586Z\",\n            \"updatedAt\": \"2024-11-04T08:17:08.586Z\",\n            \"deletedAt\": null,\n            \"userCreate\": null,\n            \"userUpdate\": null,\n            \"userDelete\": null\n        }\n    }\n}"
+						},
+						{
+							"name": "404 not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-+p65kW9S9ZbIceMWizps7k81ox8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:39:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Failed\",\n    \"message\": \"API not found\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "create car",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"limosin\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SA\",\r\n    \"harga\" : \"20000000\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"limosin prabowo\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SB\",\r\n    \"harga\" : \"25000000\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-4HzL5zefYOn+HaX5EE2pPGU/WbU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:30:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success create car data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"newCar\": {\n            \"id\": 7,\n            \"name\": \"limosin prabowo\",\n            \"tahun\": \"2024\",\n            \"noPlat\": \"AB 1234 SB\",\n            \"harga\": \"25000000\",\n            \"updatedAt\": \"2024-11-04T14:30:21.502Z\",\n            \"createdAt\": \"2024-11-04T14:30:21.502Z\",\n            \"fotoMobil\": null,\n            \"createBy\": null,\n            \"updateBy\": null,\n            \"deleteBy\": null,\n            \"deletedAt\": null\n        }\n    }\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"limosin prabowo\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SB\",\r\n    \"harga\" : \"2500000\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:40:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "update car",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"limosin Jumbo\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SA\",\r\n    \"harga\" : \"20000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/cars/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 ok update car",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"limosin terbaru\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SA\",\r\n    \"harga\" : \"20000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/6",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-SwN0DINi8/Ui7l4WS3m3arzmrAY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:30:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success update car data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"car\": {\n            \"name\": \"limosin terbaru\",\n            \"tahun\": \"2024\",\n            \"noPlat\": \"AB 1234 SA\",\n            \"harga\": \"20000000\",\n            \"updatedBy\": 4\n        }\n    }\n}"
+						},
+						{
+							"name": "404 unauthorized",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"limosin terbaru\",\r\n    \"tahun\" : \"2024\",\r\n    \"noPlat\" : \"AB 1234 SA\",\r\n    \"harga\" : \"20000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-hitP9s6+tDDJqhT71D+XZ1Di/Co\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:41:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt malformed\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "delete cars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/cars/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 succes delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/6",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b3-J/Onp8yJMOhjQ3rLQ7gLmsI2thY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:31:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success delete car\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"car\": {\n            \"id\": 6,\n            \"deletedBy\": 4,\n            \"deletedAt\": \"Mon Nov 04 2024 21:31:00 GMT+0700 (Western Indonesia Time)\"\n        }\n    }\n}"
+						},
+						{
+							"name": "401 unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/cars/6",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"cars",
+										"6"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:41:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "token login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"wahyu@example.com\",\r\n    \"password\" : \"wahyu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 create token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"wahyu@example.com\",\r\n    \"password\" : \"wahyu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "506"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1fa-8QSYd2nuCBLW272nKurvuS9luMM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:37:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Login user successfully\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"email\": \"wahyu@example.com\",\n        \"firstName\": \"Wahyu\",\n        \"lastName\": \"Anang\",\n        \"phone\": \"1234567890\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJ3YWh5dUBleGFtcGxlLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiY3JlYXRlZEF0IjoiMjAyNC0xMS0wNFQwODoxNzowOC41NzZaIiwidXBkYXRlZEF0IjoiMjAyNC0xMS0wNFQwODoxNzowOC41NzZaIiwiaWF0IjoxNzMwNzM0NjUxLCJleHAiOjE3MzA3MzgyNTF9.z5hkFVjh-wJ9ccbcYUfbAnTzMAs426EOIJZaXaUfkWY\",\n        \"role\": \"superadmin\"\n    }\n}"
+						},
+						{
+							"name": "404 not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"wahyu@example.com\",\r\n    \"password\" : \"wahyu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/auth/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-+p65kW9S9ZbIceMWizps7k81ox8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:42:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Failed\",\n    \"message\": \"API not found\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1552"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"610-Gyx7VvJIBJ5/vhWYPLxPu6hf6Uo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:35:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success get users data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": 4,\n                \"firstName\": \"Wahyu\",\n                \"lastName\": \"Anang\",\n                \"email\": \"wahyu@example.com\",\n                \"password\": \"$2b$10$nVQlBPF4c4DqUKbQ6nEtIedDnRilJ6wf.kOTPjUzR1udJ.MlVcDXe\",\n                \"phone\": \"1234567890\",\n                \"photo\": \"https://example.com/photo1.jpg\",\n                \"role\": \"superadmin\",\n                \"createdAt\": \"2024-11-04T08:17:08.576Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.576Z\"\n            },\n            {\n                \"id\": 5,\n                \"firstName\": \"kang\",\n                \"lastName\": \"rantau\",\n                \"email\": \"kang@example.com\",\n                \"password\": \"$2b$10$nVQlBPF4c4DqUKbQ6nEtIedDnRilJ6wf.kOTPjUzR1udJ.MlVcDXe\",\n                \"phone\": \"0814627391\",\n                \"photo\": \"https://example.com/photo2.jpg\",\n                \"role\": \"admin\",\n                \"createdAt\": \"2024-11-04T08:17:08.576Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.576Z\"\n            },\n            {\n                \"id\": 6,\n                \"firstName\": \"anak\",\n                \"lastName\": \"rantau\",\n                \"email\": \"rantau@example.com\",\n                \"password\": \"$2b$10$nVQlBPF4c4DqUKbQ6nEtIedDnRilJ6wf.kOTPjUzR1udJ.MlVcDXe\",\n                \"phone\": \"0812345678\",\n                \"photo\": \"https://example.com/photo.jpg\",\n                \"role\": \"member\",\n                \"createdAt\": \"2024-11-04T08:17:08.576Z\",\n                \"updatedAt\": \"2024-11-04T08:17:08.576Z\"\n            },\n            {\n                \"id\": 7,\n                \"firstName\": \"Rafli\",\n                \"lastName\": \"Jwt\",\n                \"email\": \"Rafli01@gmail.com\",\n                \"password\": \"$2a$10$fYlggIRxU/jHwZ327ZnvKOCehtAr2prjJ8jpbh/vacUMu3p/5jcBu\",\n                \"phone\": null,\n                \"photo\": null,\n                \"role\": \"member\",\n                \"createdAt\": \"2024-11-04T14:32:41.763Z\",\n                \"updatedAt\": \"2024-11-04T14:32:41.763Z\"\n            },\n            {\n                \"id\": 8,\n                \"firstName\": \"Tegar\",\n                \"lastName\": \"Ramadhan\",\n                \"email\": \"Tugas02@gmail.com\",\n                \"password\": \"$2a$10$8IvrTeTj/pm4mtG0igHuN.4mZ1f20jCc.OiaS26zVwHMag3TEPYnS\",\n                \"phone\": null,\n                \"photo\": null,\n                \"role\": \"member\",\n                \"createdAt\": \"2024-11-04T14:34:07.068Z\",\n                \"updatedAt\": \"2024-11-04T14:34:07.068Z\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "401 unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:43:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Alif\",\r\n    \"email\" : \"alif01@gmail.com\",\r\n    \"passwor\" : \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all user by_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "200 create user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"Rafli\",\r\n    \"lastName\" : \"Jwt\",\r\n    \"email\" : \"Rafli01@gmail.com\",\r\n    \"password\" : \"12324312\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "363"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16b-M0XUqO9KZgrLXVYPlaTAm6YCmTI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:32:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Register user successfully\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"newUser\": {\n            \"role\": \"member\",\n            \"id\": 7,\n            \"email\": \"Rafli01@gmail.com\",\n            \"password\": \"$2a$10$fYlggIRxU/jHwZ327ZnvKOCehtAr2prjJ8jpbh/vacUMu3p/5jcBu\",\n            \"firstName\": \"Rafli\",\n            \"lastName\": \"Jwt\",\n            \"phone\": null,\n            \"updatedAt\": \"2024-11-04T14:32:41.763Z\",\n            \"createdAt\": \"2024-11-04T14:32:41.763Z\",\n            \"photo\": null\n        }\n    }\n}"
+						},
+						{
+							"name": "401 unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"Rafli\",\r\n    \"lastName\" : \"Jwt\",\r\n    \"email\" : \"Rafli01@gmail.com\",\r\n    \"password\" : \"12324312\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-QIxi+pkpJgFqyvgg9Lduqm8wGEc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:44:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"jwt expired\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "201 register user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"Tegar\",\r\n    \"lastName\" : \"Ramadhan\",\r\n    \"email\" : \"Tugas02@gmail.com\",\r\n    \"password\" : \"tegar12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "368"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"170-ENy6RJ1cEyOMYYemuI3Mv3OOk6A\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:34:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Register user successfully\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"newUser\": {\n            \"role\": \"member\",\n            \"id\": 8,\n            \"email\": \"Tugas02@gmail.com\",\n            \"password\": \"$2a$10$8IvrTeTj/pm4mtG0igHuN.4mZ1f20jCc.OiaS26zVwHMag3TEPYnS\",\n            \"firstName\": \"Tegar\",\n            \"lastName\": \"Ramadhan\",\n            \"phone\": null,\n            \"updatedAt\": \"2024-11-04T14:34:07.068Z\",\n            \"createdAt\": \"2024-11-04T14:34:07.068Z\",\n            \"photo\": null\n        }\n    }\n}"
+						},
+						{
+							"name": "400 bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"Tegar\",\r\n    \"lastName\" : \"Ramadhan\",\r\n    \"email\" : \"Tugas02@gmail.com\",\r\n    \"password\" : \"tegar12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/auth/register/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-ACmcEcpS7sMAbcXFNR0Zznp2Zpo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:44:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Failed\",\n    \"message\": \"Email address already in use!\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by_id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "get user by_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "200 get user by_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/users/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "397"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18d-8Ktgzb+vTMip6OFYaR6mfuomsNo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 14:35:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"Success get user data\",\n    \"isSuccess\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 4,\n            \"firstName\": \"Wahyu\",\n            \"lastName\": \"Anang\",\n            \"email\": \"wahyu@example.com\",\n            \"password\": \"$2b$10$nVQlBPF4c4DqUKbQ6nEtIedDnRilJ6wf.kOTPjUzR1udJ.MlVcDXe\",\n            \"phone\": \"1234567890\",\n            \"photo\": \"https://example.com/photo1.jpg\",\n            \"role\": \"superadmin\",\n            \"createdAt\": \"2024-11-04T08:17:08.576Z\",\n            \"updatedAt\": \"2024-11-04T08:17:08.576Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-+p65kW9S9ZbIceMWizps7k81ox8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Nov 2024 15:46:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Failed\",\n    \"message\": \"API not found\",\n    \"isSuccess\": false,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
