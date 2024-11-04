@@ -1,6 +1,6 @@
 # 🚗 Car Management API
 
-Selamat datang di **Car Management API**! Proyek ini merupakan aplikasi untuk mengelola data mobil dan pengguna dalam sistem rental mobil. Dibangun menggunakan **Express.js**, **PostgreSQL**, dan **Sequelize** sebagai ORM, API ini menyediakan operasi CRUD untuk pengelolaan data mobil dan pengguna. 
+Selamat datang di **Car Management API**! Proyek ini merupakan aplikasi untuk mengelola data mobil dan pengguna dalam sistem rental mobil. Dibangun menggunakan **Express.js**, **PostgreSQL**, dan **Sequelize** sebagai ORM, API ini menyediakan operasi CRUD untuk pengelolaan data mobil dan pengguna.
 
 ## 🎯 Deskripsi Proyek
 
@@ -18,51 +18,44 @@ Dalam proyek ini, Anda akan menemukan fitur-fitur sebagai berikut:
 - **JWT (JSON Web Token)**
 - **Swagger**
 - **Bcrypt**
-- **PostgreSQL**
 
 ## 📥 Instalasi
 
 Ikuti langkah-langkah berikut untuk menginstal dan menjalankan aplikasi ini di lingkungan lokal Anda:
 
 ### 1. Clone Repository
-Clone repo dari GitHub:
-```bash
-git clone https://github.com/wahyuanang/24001183-km7-waz-CarManagementApi-ch5.git
+Clone repo dari GitHub: git clone https://github.com/wahyuanang/24001183-km7-waz-CarManagementApi-ch5.git
 
-### 2. Intall Dependencies
-npm install
+### 2. install dependensi
+**Npm install**
 
 ### 3. Atur file .env
-DB_USERNAME=
-DB_PASSWORD=
-DB_NAME=
-DB_HOST=
-DB_PORT=
+**DB_USERNAME=**
+**DB_PASSWORD=**
+**DB_NAME=**
+**DB_HOST=**
+**DB_PORT=**
 
-PUBLIC_KEY=
-PRIVATE_KEY=
-URL_ENDPOINT=
+**PUBLIC_KEY=**
+**PRIVATE_KEY=**
+**URL_ENDPOINT=**
 
-JWT_SECRET=
-JWT_EXPIRED=
+**JWT_SECRET=**
+**JWT_EXPIRED=**
 
 ### 4. Jalankan database
-npx sequelize db:create
-npx sequelize db:migrate
-npx sequelize db:seed:all
+**npx sequelize db:create**
+**npx sequelize db:migrate**
+**npx sequelize db:seed:all**
 
 ### 4. Jalankan aplikasi
-npm run dev
+**npm run dev**
 
 
-
-
-
-
-## Authentication
+## 🔐 Authentication
 Akses ke beberapa endpoint dibatasi untuk peran Admin dan Super Admin.
 
-## Endpoints USERS
+## 📋 Endpoints USERS
 
 ### 1. Post Token
 - **Method:** `POST`
@@ -92,7 +85,7 @@ Akses ke beberapa endpoint dibatasi untuk peran Admin dan Super Admin.
 - **Description:** Membuat catatan pengguna baru. Endpoint ini dapat diakses oleh pengguna yang berwenang.
 
 
-## Endpoints CARS
+## 📋 Endpoints CARS
 
 ### 1. Get All Cars
 - **Method:** `GET`
@@ -123,8 +116,3 @@ Akses ke beberapa endpoint dibatasi untuk peran Admin dan Super Admin.
 - **Endpoint:** `/api/v1/cars/id`
 - **Description:** Delete mobil berdasarkan id 
 - **Note:** Isi di dalam row query
-
-
-
-
-
