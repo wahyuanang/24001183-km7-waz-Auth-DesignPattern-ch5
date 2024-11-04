@@ -8,12 +8,13 @@ const docsRouter = require("./routes/documentationRoute");
 const router = require("./routes");
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(morgan("dev"));
-app.use("/api-docs", docsRouter)
+
 app.use("/api/v1", router);
+app.use("/api-docs", docsRouter);
 
 module.exports = app;

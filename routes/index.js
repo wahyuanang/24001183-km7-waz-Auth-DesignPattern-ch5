@@ -11,7 +11,7 @@ router.use("/auth", Auth);
 router.use("/users", User);
 router.use("/cars", Car);
 
-router.use("/api-docs", Docs);
+// router.use(Docs);
 
 router.use("/health-check", SystemController.healthcheck);
 router.use(SystemController.onLost);
